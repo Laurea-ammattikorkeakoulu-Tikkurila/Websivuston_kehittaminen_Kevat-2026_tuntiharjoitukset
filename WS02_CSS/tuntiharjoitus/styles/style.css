@@ -1,0 +1,123 @@
+/* style.css */
+
+/* Sivun runko: keskitetään sisältö, asetetaan taustaväri,
+   maksimileveys, automaattiset marginaalit ja fonttiperhe */
+body {
+    background-color: #f0f4f8;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 24px;
+    font-family: Georgia, serif;
+}
+
+/* Kappaleteksti: tumma väri, hieman suurennettu fontti,
+   vasemmalla sininen korostusviiva, valkoinen tausta ja pyöristetyt kulmat */
+p {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-family: Georgia, serif;
+    line-height: 1.7;
+    max-width: 600px;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border-left: 4px solid steelblue;
+    border-radius: 4px;
+}
+
+/* Kuva: kiinteä leveys, pyöristetyt kulmat, sininen reunus ja varjostus */
+img {
+    width: 300px;
+    border-radius: 12px;
+    border: 3px solid steelblue;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 16px 0;
+}
+
+/* Järjestetty lista: vaaleansininen tausta, sininen reunus,
+   pyöristetyt kulmat ja tummansininen teksti */
+ol {
+    background-color: #e8f4fd;
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    padding: 12px 12px 12px 36px;
+    max-width: 400px;
+    list-style-type: decimal;
+    color: #1a3a5c;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* Järjestämätön lista: lämmin keltainen tausta, kultainen reunus,
+   neliömäiset luettelomerkit ja ruskea teksti */
+ul {
+    background-color: #fef9e7;
+    border: 2px solid goldenrod;
+    border-radius: 8px;
+    padding: 12px 12px 12px 36px;
+    max-width: 400px;
+    list-style-type: square;
+    color: #5d4037;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* Lomake: valkoinen kortti, sininen reunus, pyöristetyt kulmat ja hienovarainen varjo */
+form {
+    background-color: #ffffff;
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    padding: 24px 28px;
+    max-width: 400px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lomakkeen kentän otsikko: lihavoi, näyttää omalla rivillään */
+form label {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+}
+
+/* Teksti- ja sähköpostikentät: täysi leveys, pehmuste, pyöristetyt kulmat
+   ja vaaleansininen tausta */
+form input[type="text"],
+form input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f0f4f8;
+}
+
+/* Kun kenttä on aktiivinen (focus): reunus tummenee ja tausta vaihtuu valkoiseksi */
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    outline: none;
+    border-color: #1a3a5c;
+    background-color: #ffffff;
+}
+
+/* Lähetyspainike: sininen tausta, valkoinen teksti, pyöristetyt kulmat */
+form input[type="submit"] {
+    background-color: steelblue;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Lähetyspainike hover-tilassa: tausta tummenee kun hiiri on päällä */
+form input[type="submit"]:hover {
+    background-color: #1a3a5c;
+}
