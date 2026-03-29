@@ -1,6 +1,17 @@
 # WS02: CSS perusteet - tuntiharjoitus
 
-Tässä tuntiharjoituksessa tutustutaan CSS:n perusteisiin ja siihen, miten sivun ulkoasu muuttuu selkeammaksi ja visuaalisesti miellyttavammaksi pelkan HTML-rakenteen päälle lisatyn tyylin avulla.
+Tässä tuntiharjoituksessa tutustutaan CSS:n perusteisiin ja siihen, miten sivun ulkoasu muuttuu selkeämmäksi ja visuaalisesti miellyttävämmäksi, kun pelkän HTML-rakenteen päälle lisätään tyyliä.
+
+## Harjoituksen tiedostot
+
+Kansiossa on kaksi HTML-tiedostoa:
+- index1.html = sivun perusversio ilman CSS-muotoiluja
+- index2.html = sama sivu CSS:n avulla muotoiltuna
+
+Lisäksi käytössä on erillinen tyylitiedosto:
+- styles/style.css = ulkoiset CSS-säännöt, joita index2 hyödyntää
+
+Vertaa index1- ja index2-tiedostoja keskenään. Näet konkreettisesti, miten samat HTML-elementit näyttävät hyvin erilaisilta, kun niihin lisätään CSS-muotoilua.
 
 ## Mikä on CSS?
 
@@ -11,7 +22,7 @@ Lyhyesti:
 - HTML = sisalto ja rakenne
 - CSS = ulkoasu ja tyyli
 
-## Miten CSS:aa kaytetaan?
+## Miten CSS:ää käytetään?
 
 CSS kirjoitetaan sääntöinä, joissa valitaan haluttu elementti (selector) ja annetaan sille tyyliominaisuuksia.
 
@@ -24,17 +35,17 @@ h1 {
 }
 ```
 
-Ylla oleva sääntö muotoilee kaikki h1-otsikot sinertaviksi ja suuremmiksi.
+Yllä oleva sääntö muotoilee kaikki h1-otsikot sinertäviksi ja suuremmiksi.
 
-## Missa CSS voidaan maaritella?
+## Missä CSS voidaan määritellä?
 
 1. Ulkoisessa tyylitiedostossa (suositeltu tapa), esim. `styles/style.css`
-2. HTML-tiedoston `<style>`-osion sisalla. TÄmä on kaytannollista, jos halutaan maaritella vain muutama tyyli yhdelle sivulle. <stye> elementti sijoitetaan HTML-tiedoston `<head>`-osion sisalle.
+2. HTML-tiedoston `<style>`-osion sisällä. Tämä on käytännöllistä, jos halutaan määritellä vain muutama tyyli yhdelle sivulle. `<style>`-elementti sijoitetaan HTML-tiedoston `<head>`-osion sisälle.
 3. Suoraan elementin `style`-attribuutissa
 
-Yleensä käytetään ulkoista tyylitiedostoa, koska se pitaa koodin selkeana ja helpottaa yllapitoa.
+Yleensä käytetään ulkoista tyylitiedostoa, koska se pitää koodin selkeänä ja helpottaa ylläpitoa.
 
-## Mita tässä harjoituksessa opitaan?
+## Mitä tässä harjoituksessa opitaan?
 
 Tavoitteena on harjoitella yleisimpiä CSS-muotoiluja, kuten:
 - tekstin vari ja fontti
@@ -43,8 +54,12 @@ Tavoitteena on harjoitella yleisimpiä CSS-muotoiluja, kuten:
 - reunukset
 - elementtien leveydet ja sijoittelu
 
-Kun samoille HTML-elementeille lisataan CSS-saantoja, sivun ulkoasu muuttuu nopeasti huomattavasti selkeammaksi ja ammattimaisemmaksi.
+Kun samoille HTML-elementeille lisätään CSS-sääntöjä, sivun ulkoasu muuttuu nopeasti huomattavasti selkeämmäksi ja ammattimaisemmaksi.
 
 ## Yhteenveto
 
-CSS on verkkosivun ulkoasun perusta. Sen avulla voit erottaa sisallon (HTML) ja ulkoasun (CSS), jolloin sivujen rakentaminen, muokkaaminen ja yllapito on helpompaa.
+CSS on verkkosivun ulkoasun perusta. Sen avulla voit erottaa sisällön (HTML) ja ulkoasun (CSS), jolloin sivujen rakentaminen, muokkaaminen ja ylläpito on helpompaa.
+
+## Huomio
+
+Tämän README-tiedoston sisällön luomisessa on käytetty GitHub Copilotia.
