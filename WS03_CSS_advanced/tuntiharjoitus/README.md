@@ -1,64 +1,85 @@
-# WS02: CSS perusteet - tuntiharjoitus
+# WS03: CSS edistyneet ominaisuudet - tuntiharjoitus
 
-Tässä tuntiharjoituksessa tutustutaan CSS:n perusteisiin ja siihen, miten sivun ulkoasu muuttuu selkeämmäksi ja visuaalisesti miellyttävämmäksi, kun pelkän HTML-rakenteen päälle lisätään tyyliä.
+Tässä tuntiharjoituksessa tutustutaan CSS:n edistyneisiin ominaisuuksiin, kuten siirtymäanimaatioihin, hover-tiloihin, varjostuksiin ja lomakkeiden muotoiluun.
 
 ## Harjoituksen tiedostot
 
-Kansiossa on kaksi HTML-tiedostoa:
-- index1.html = sivun perusversio ilman CSS-muotoiluja
-- index2.html = sama sivu CSS:n avulla muotoiltuna
-
-Lisäksi käytössä on erillinen tyylitiedosto:
-- styles/style.css = ulkoiset CSS-säännöt, joita index2 hyödyntää
-
-Vertaa index1- ja index2-tiedostoja keskenään. Näet konkreettisesti, miten samat HTML-elementit näyttävät hyvin erilaisilta, kun niihin lisätään CSS-muotoilua.
-
-## Mikä on CSS?
-
-CSS (Cascading Style Sheets) on tyylikieli, jolla maaritellään verkkosivun ulkoasu.
-HTML kertoo mita sivulla on (esim. otsikko, kappale, kuva, linkki), ja CSS kertoo milta ne nayttavat (esim. vari, koko, fontti, valit, sijoittelu).
-
-Lyhyesti:
-- HTML = sisalto ja rakenne
-- CSS = ulkoasu ja tyyli
-
-## Miten CSS:ää käytetään?
-
-CSS kirjoitetaan sääntöinä, joissa valitaan haluttu elementti (selector) ja annetaan sille tyyliominaisuuksia.
-
-Esimerkki:
-
-```css
-h1 {
-	color: #1f4e79;
-	font-size: 2rem;
-}
-```
-
-Yllä oleva sääntö muotoilee kaikki h1-otsikot sinertäviksi ja suuremmiksi.
-
-## Missä CSS voidaan määritellä?
-
-1. Ulkoisessa tyylitiedostossa (suositeltu tapa), esim. `styles/style.css`
-2. HTML-tiedoston `<style>`-osion sisällä. Tämä on käytännöllistä, jos halutaan määritellä vain muutama tyyli yhdelle sivulle. `<style>`-elementti sijoitetaan HTML-tiedoston `<head>`-osion sisälle.
-3. Suoraan elementin `style`-attribuutissa
-
-Yleensä käytetään ulkoista tyylitiedostoa, koska se pitää koodin selkeänä ja helpottaa ylläpitoa.
+- `index.html` — HTML-sivu, joka sisältää otsikon, kappaleen, kuvan, järjestetyn ja järjestämättömän listan sekä lomakkeen
+- `styles/style.css` — ulkoinen tyylitiedosto, joka hyödyntää edistyneitä CSS-ominaisuuksia
+- `images/` — harjoituksessa käytetty kuva
 
 ## Mitä tässä harjoituksessa opitaan?
 
-Tavoitteena on harjoitella yleisimpiä CSS-muotoiluja, kuten:
-- tekstin vari ja fontti
-- taustavarit
-- marginaalit ja sisamarginaalit
-- reunukset
-- elementtien leveydet ja sijoittelu
+Harjoituksessa käytännössä sovelletaan seuraavia CSS:n edistyneitä ominaisuuksia:
 
-Kun samoille HTML-elementeille lisätään CSS-sääntöjä, sivun ulkoasu muuttuu nopeasti huomattavasti selkeämmäksi ja ammattimaisemmaksi.
+### CSS Transition (siirtymäanimaatio)
+
+`transition`-ominaisuuden avulla elementtien tilamuutoksista tulee sileitä animaatioita sen sijaan, että ne tapahtuisivat välittömästi.
+
+Esimerkki tässä harjoituksessa:
+
+```css
+img {
+    transition: all 0.3s ease-in-out;
+}
+```
+
+- `all` — animaatio koskee kaikkia muuttuvia ominaisuuksia
+- `0.3s` — siirtymän kesto on 0,3 sekuntia
+- `ease-in-out` — animaatio alkaa hitaasti, nopeutuu keskellä ja hidastuu lopussa
+
+### Pseudo-luokka :hover
+
+`:hover`-pseudo-luokan avulla voidaan määrittää elementille tyyli, joka aktivoituu, kun käyttäjä vie hiiren sen päälle.
+
+Esimerkki tässä harjoituksessa:
+
+```css
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+}
+```
+
+Kuva suurenee 10 % ja sen varjo kasvaa, kun hiiri viedään kuvan päälle.
+
+### CSS Transform
+
+`transform`-ominaisuudella voidaan siirtää, skaalata tai kiertää elementtiä muuttamatta sivun muuta rakennetta.
+
+- `scale(1.1)` — suurentaa elementin 110 %:iin alkuperäisestä koosta
+
+### Box Shadow (varjostus)
+
+`box-shadow` lisää elementille varjon, joka tekee siitä visuaalisesti erottuvamman.
+
+```css
+box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+```
+
+- Ensimmäiset kaksi arvoa määrittävät varjon sijainnin vaakasuunnassa ja pystysuunnassa
+- Kolmas arvo on varjon pehmeysalue (blur)
+- `rgba()` määrittää värin ja läpinäkyvyyden
+
+### Lomakkeen muotoilu
+
+Lomakkeelle ja sen kentille on määritelty omat tyylit, jotka tekevät siitä siistimmän ja käyttäjäystävällisemmän:
+
+- Valkoinen kortti-ulkoasu reunuksella ja varjolla
+- Kenttien otsikot (`label`) näytetään omalla rivillään
+- Teksti- ja sähköpostikentät täyttävät koko leveyden, niissä on pehmuste ja pyöristetyt kulmat
+
+### CSS:n kolme kirjoituspaikkaa
+
+Tässä harjoituksessa CSS on kirjoitettu kaikkiin kolmeen paikkaan:
+
+1. **Ulkoinen tyylitiedosto** `styles/style.css` — pääasiallinen paikka
+2. **`<style>`-elementti** HTML-tiedoston `<head>`-osiossa — listaelementtien (`li`) tyyli
+3. **`style`-attribuutti** suoraan elementissä — h1-otsikon väri
 
 ## Yhteenveto
 
-CSS on verkkosivun ulkoasun perusta. Sen avulla voit erottaa sisällön (HTML) ja ulkoasun (CSS), jolloin sivujen rakentaminen, muokkaaminen ja ylläpito on helpompaa.
+Edistyneiden CSS-ominaisuuksien avulla verkkosivuille voidaan lisätä interaktiivisuutta ja visuaalista kiinnostavuutta ilman JavaScript-koodia. Transitiot ja hover-tilat tekevät sivusta dynaamisemman ja miellyttävämmän käyttää.
 
 ## Huomio
 
