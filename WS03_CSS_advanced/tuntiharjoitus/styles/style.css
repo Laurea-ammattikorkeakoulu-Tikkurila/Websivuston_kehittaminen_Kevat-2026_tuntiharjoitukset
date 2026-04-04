@@ -1,5 +1,58 @@
 /* style.css */
 
+/* =====================================================
+   CSS ANIMATION (animaatio)
+   =====================================================
+   CSS-animaatio koostuu kahdesta osasta:
+
+   1. @keyframes-sääntö: määrittelee mitä tapahtuu animaation eri vaiheissa.
+      from = animaation alku, to = animaation loppu.
+      Voidaan myös käyttää prosenttilukuja, esim. 0%, 50%, 100%.
+
+   2. animation-ominaisuus elementillä: kytkee @keyframes-animaation
+      elementtiin ja määrittelee, miten animaatio suoritetaan.
+
+   Tärkeimmät animation-aliominaisuudet:
+   - animation-name           = @keyframes-säännön nimi
+   - animation-duration       = kesto (esim. 0.8s)
+   - animation-timing-function = nopeusfunktio (ease, linear, ease-in-out...)
+   - animation-fill-mode      = mitä tapahtuu animaation jälkeen
+                                (forwards = elementti jää loppuasentoon)
+
+   Ero transition-ominaisuuteen:
+   - transition käynnistyy vain, kun elementin tila muuttuu (esim. :hover)
+   - animation käynnistyy automaattisesti ilman käyttäjän toimintaa
+   ===================================================== */
+
+/* Keyframes: animaatio "slideInDown"
+   Elementti lähtee liikkeelle 40px ylöspäin oletusasemastaan (translateY(-40px))
+   ja häivytettynä (opacity: 0), ja saapuu normaaliin asemaansa täysin näkyvänä */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animoitu banneri: käyttää slideInDown-animaatiota sivun latautuessa */
+.animated-banner {
+    background-color: steelblue;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* animation-ominaisuus: name | duration | timing-function | fill-mode */
+    animation: slideInDown 0.8s ease-out forwards;
+}
+
 /* Sivun runko: keskitetään sisältö, asetetaan taustaväri,
    maksimileveys, automaattiset marginaalit ja fonttiperhe */
 body {
