@@ -77,8 +77,33 @@ p {
     border-radius: 4px;
 }
 
+/* =====================================================
+   CSS FILTER (suodattimet)
+   =====================================================
+   filter-ominaisuudella voidaan lisätä visuaalisia efektejä suoraan
+   HTML-elementtiin ilman kuvanmuokkausohjelmaa. Suodattimet lasketaan
+   selaimen toimesta reaaliajassa.
+
+   Yleisimmät filter-arvot:
+   - grayscale(%)    = muuttaa kuvan harmaasävyiseksi (0% = värikuva, 100% = täysin harmaa)
+   - brightness(%)   = säätää kirkkautta (100% = normaali, <100% = tummempi, >100% = kirkkaampi)
+   - contrast(%)     = säätää kontrastia
+   - blur(px)        = pehmentää kuvaa (suurempi px = enemmän sumentamista)
+   - sepia(%)        = lisää seepiasävyn (vintageeffekti)
+   - hue-rotate(deg) = kääntää värisävyä väriympyrällä (0–360 astetta)
+   - opacity(%)      = läpinäkyvyys (sama kuin opacity-ominaisuus)
+
+   Useita suodattimia voidaan ketjuttaa välilyönnillä erotettuna:
+     filter: grayscale(100%) brightness(80%);
+
+   Tässä esimerkissä kuva näytetään oletuksena harmaasävyisenä ja himmeänä.
+   Hover-tilassa suodattimet poistetaan, jolloin kuva palautuu täyteen väriin.
+   Transition tekee värimuutoksesta silean animaation.
+   ===================================================== */
+
 /* Kuva: kiinteä leveys, pyöristetyt kulmat, sininen reunus ja varjostus
-   Lisätty transition-ominaisuus sileille animaatioille */
+   Lisätty transition-ominaisuus sileille animaatioille.
+   filter: grayscale(100%) brightness(80%) = kuva näytetään harmaana ja himmeänä */
 img {
     width: 300px;
     border-radius: 12px;
@@ -86,15 +111,16 @@ img {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
     display: block;
     margin: 16px 0;
-    /* CSS Transition: Luo silean siirtymä-animaation kaikille ominaisuuksille
-       0.3s = siirtymän kesto on 0,3 sekuntia
-       ease-in-out = animaatio alkaa hitaasti, nopeutuu keskellä ja hidastuu loppuun */
-    transition: all 0.3s ease-in-out;
+    /* CSS Filter: oletustila — harmaasävy ja himmennetty kirkkaus */
+    filter: grayscale(100%) brightness(80%);
+    /* CSS Transition: kaikki muutokset (myös filter) animoituvat sileästi 0,5 sekunnissa */
+    transition: all 0.5s ease-in-out;
 }
 
-/* Kuvan hover-tila: kun hiiri on kuvan päällä, kuva suurenee ja varjo kasvaa
-   Transition-ominaisuus tekee tästä muutoksesta silean animaation */
+/* Kuvan hover-tila: suodattimet poistetaan (filter: none) ja kuva palautuu
+   täyteen väriin. Kuva myös suurenee ja varjo kasvaa. */
 img:hover {
+    filter: none;
     transform: scale(1.1);
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
 }
@@ -161,4 +187,114 @@ form input[type="email"] {
     font-size: 1rem;
     box-sizing: border-box;
     background-color: #f0f4f8;
+}
+
+/* =====================================================
+   CSS PSEUDO-CLASSES (pseudo-luokat)
+   =====================================================
+   Pseudo-luokka valitsee elementin tietyssä tilassa tai rakenteellisen
+   asemansa perusteella. Se kirjoitetaan yksipisteisellä etuliitteellä:
+     elementti:pseudo-luokka { ... }
+
+   Yleisimmät pseudo-luokat:
+   - :hover        = kun hiiri on elementin päällä
+   - :focus        = kun elementti on aktiivisena (esim. kenttä valittuna)
+   - :first-child  = ensimmäinen sisaruksista
+   - :last-child   = viimeinen sisaruksista
+   - :nth-child(n) = n:s sisarus; voidaan käyttää odd/even tai kaavaa
+   ===================================================== */
+
+/* :nth-child(odd) ja :nth-child(even): raidoitettu listanäkymä
+   Parittomat kohdat (1, 3) saavat vaaleamman taustan,
+   parilliset kohdat (2) hieman tummemman - helppo tapa erottaa rivit toisistaan */
+ol li:nth-child(odd) {
+    background-color: #d0e8f8;
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+ol li:nth-child(even) {
+    background-color: #b8d8f0;
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+/* :first-child ja :last-child: korostetaan listan ensimmäinen ja viimeinen kohta */
+ul li:first-child {
+    color: goldenrod;
+    text-decoration: underline;
+}
+
+ul li:last-child {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* :focus: kun käyttäjä klikkaa tai tab-näppäimellä siirtyy kenttään,
+   reunus muuttuu erottuvaksi ja tausta vaalenee */
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    outline: none;
+    border: 2px solid #1a3a5c;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(70, 130, 180, 0.5);
+}
+
+/* :hover submit-napille: nappi muuttuu interaktiiviseksi hoverin aikana */
+form input[type="submit"] {
+    background-color: steelblue;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1a3a5c;
+}
+
+/* =====================================================
+   CSS PSEUDO-ELEMENTS (pseudo-elementit)
+   =====================================================
+   Pseudo-elementti viittaa elementin tiettyyn osaan tai luo uuden
+   "virtuaalisen" elementin HTML-koodia muuttamatta.
+   Se kirjoitetaan kaksipisteisellä etuliitteellä:
+     elementti::pseudo-elementti { ... }
+
+   Yleisimmät pseudo-elementit:
+   - ::before      = lisää sisältöä elementin eteen (vaatii content-ominaisuuden)
+   - ::after       = lisää sisältöä elementin jälkeen (vaatii content-ominaisuuden)
+   - ::first-letter = tyylittää kappaleen ensimmäisen kirjaimen
+   - ::first-line   = tyylittää kappaleen ensimmäisen rivin
+   =====================================================  */
+
+/* ::before: lisää dekoratiivisen symbolin h2-otsikoiden eteen automaattisesti
+   content-ominaisuus määrittää lisättävän tekstin tai merkin */
+h2::before {
+    content: "▸ ";
+    color: steelblue;
+}
+
+/* ::first-letter: kappaleen ensimmäinen kirjain suurennetaan drop cap -tyyliin */
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: steelblue;
+    float: left;
+    line-height: 1;
+    margin-right: 4px;
+}
+
+/* ::after: lisää visuaalisen viivan h2-otsikon alle */
+h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: steelblue;
+    margin-top: 4px;
+    border-radius: 2px;
 }
