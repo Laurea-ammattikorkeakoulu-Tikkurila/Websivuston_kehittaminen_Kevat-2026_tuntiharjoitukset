@@ -121,8 +121,3 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background-color: #1a3a5c;
 }
-
-
-body {
-    background-color: #d4dbe2;
-}
