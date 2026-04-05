@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berfin HTML sivu</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        li {
+            color: darkslategray;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: steelblue;">Welcome to Berfin Page</h1>
+
+    <!-- CSS Animation: tämä elementti liukuu sisään ylhäältä sivun latautuessa -->
+    <div class="animated-banner">CSS Animation in action!</div>
+
+    <!-- CSS Pseudo-element ::first-letter: kappaleen ensimmäinen kirjain tyylitellään
+         drop cap -tyyliin (suuri, lihavoitu, sininen) style.css:ssä -->
+    <p>This is a paragraph.</p>
+
+    <!-- CSS Filter: kuva näytetään oletuksena harmaasävyisenä (grayscale) ja hieman
+         himmeänä (brightness). Kun hiiri viedään kuvan päälle (:hover), suodattimet
+         poistetaan ja kuva palautuu täyteen väriin. Transition tekee muutoksesta silean. -->
+    <img src="./images/Berfin.jpg" alt="Kuvalinkki on rikki">
+
+    <!-- CSS Pseudo-element ::before lisää ▸-symbolin otsikon eteen automaattisesti.
+         CSS Pseudo-element ::after piirtää sinisen korostusviivan otsikon alle. -->
+    <h2>Ordered List</h2>
+    <!-- CSS Pseudo-class :nth-child(odd) ja :nth-child(even):
+         parittomat ja parilliset listakohteet saavat eri taustavärin (raidoitus) -->
+    <ol>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ol>
+
+    <!-- CSS Pseudo-element ::before ja ::after toimivat tässäkin h2-otsikossa -->
+    <h2>Unordered List</h2>
+    <!-- CSS Pseudo-class :first-child: ensimmäinen kohta korostetaan kultaisella värillä.
+         CSS Pseudo-class :last-child: viimeinen kohta näytetään kursivoituna ja läpinäkyvänä -->
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <form>
+        <label for="name">Name:</label>
+        <!-- CSS Pseudo-class :focus: kun kenttä on aktiivisena (klikattu tai tab-näppäin),
+             reunus muuttuu tummemmaksi ja tausta vaalenee -->
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <!-- CSS Pseudo-class :hover: nappi tummuu, kun hiiri viedään sen päälle -->
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>

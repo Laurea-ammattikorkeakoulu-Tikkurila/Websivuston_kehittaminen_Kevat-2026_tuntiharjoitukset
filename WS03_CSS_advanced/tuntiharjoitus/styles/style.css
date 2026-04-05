@@ -1,0 +1,300 @@
+/* style.css */
+
+/* =====================================================
+   CSS ANIMATION (animaatio)
+   =====================================================
+   CSS-animaatio koostuu kahdesta osasta:
+
+   1. @keyframes-sääntö: määrittelee mitä tapahtuu animaation eri vaiheissa.
+      from = animaation alku, to = animaation loppu.
+      Voidaan myös käyttää prosenttilukuja, esim. 0%, 50%, 100%.
+
+   2. animation-ominaisuus elementillä: kytkee @keyframes-animaation
+      elementtiin ja määrittelee, miten animaatio suoritetaan.
+
+   Tärkeimmät animation-aliominaisuudet:
+   - animation-name           = @keyframes-säännön nimi
+   - animation-duration       = kesto (esim. 0.8s)
+   - animation-timing-function = nopeusfunktio (ease, linear, ease-in-out...)
+   - animation-fill-mode      = mitä tapahtuu animaation jälkeen
+                                (forwards = elementti jää loppuasentoon)
+
+   Ero transition-ominaisuuteen:
+   - transition käynnistyy vain, kun elementin tila muuttuu (esim. :hover)
+   - animation käynnistyy automaattisesti ilman käyttäjän toimintaa
+   ===================================================== */
+
+/* Keyframes: animaatio "slideInDown"
+   Elementti lähtee liikkeelle 40px ylöspäin oletusasemastaan (translateY(-40px))
+   ja häivytettynä (opacity: 0), ja saapuu normaaliin asemaansa täysin näkyvänä */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animoitu banneri: käyttää slideInDown-animaatiota sivun latautuessa */
+.animated-banner {
+    background-color: steelblue;
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    /* animation-ominaisuus: name | duration | timing-function | fill-mode */
+    animation: slideInDown 0.8s ease-out forwards;
+}
+
+/* Sivun runko: keskitetään sisältö, asetetaan taustaväri,
+   maksimileveys, automaattiset marginaalit ja fonttiperhe */
+body {
+    background-color: #f0f4f8;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 24px;
+    font-family: Georgia, serif;
+}
+
+/* Kappaleteksti: tumma väri, hieman suurennettu fontti,
+   vasemmalla sininen korostusviiva, valkoinen tausta ja pyöristetyt kulmat */
+p {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-family: Georgia, serif;
+    line-height: 1.7;
+    max-width: 600px;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border-left: 4px solid steelblue;
+    border-radius: 4px;
+}
+
+/* =====================================================
+   CSS FILTER (suodattimet)
+   =====================================================
+   filter-ominaisuudella voidaan lisätä visuaalisia efektejä suoraan
+   HTML-elementtiin ilman kuvanmuokkausohjelmaa. Suodattimet lasketaan
+   selaimen toimesta reaaliajassa.
+
+   Yleisimmät filter-arvot:
+   - grayscale(%)    = muuttaa kuvan harmaasävyiseksi (0% = värikuva, 100% = täysin harmaa)
+   - brightness(%)   = säätää kirkkautta (100% = normaali, <100% = tummempi, >100% = kirkkaampi)
+   - contrast(%)     = säätää kontrastia
+   - blur(px)        = pehmentää kuvaa (suurempi px = enemmän sumentamista)
+   - sepia(%)        = lisää seepiasävyn (vintageeffekti)
+   - hue-rotate(deg) = kääntää värisävyä väriympyrällä (0–360 astetta)
+   - opacity(%)      = läpinäkyvyys (sama kuin opacity-ominaisuus)
+
+   Useita suodattimia voidaan ketjuttaa välilyönnillä erotettuna:
+     filter: grayscale(100%) brightness(80%);
+
+   Tässä esimerkissä kuva näytetään oletuksena harmaasävyisenä ja himmeänä.
+   Hover-tilassa suodattimet poistetaan, jolloin kuva palautuu täyteen väriin.
+   Transition tekee värimuutoksesta silean animaation.
+   ===================================================== */
+
+/* Kuva: kiinteä leveys, pyöristetyt kulmat, sininen reunus ja varjostus
+   Lisätty transition-ominaisuus sileille animaatioille.
+   filter: grayscale(100%) brightness(80%) = kuva näytetään harmaana ja himmeänä */
+img {
+    width: 300px;
+    border-radius: 12px;
+    border: 3px solid steelblue;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 16px 0;
+    /* CSS Filter: oletustila — harmaasävy ja himmennetty kirkkaus */
+    filter: grayscale(100%) brightness(80%);
+    /* CSS Transition: kaikki muutokset (myös filter) animoituvat sileästi 0,5 sekunnissa */
+    transition: all 0.5s ease-in-out;
+}
+
+/* Kuvan hover-tila: suodattimet poistetaan (filter: none) ja kuva palautuu
+   täyteen väriin. Kuva myös suurenee ja varjo kasvaa. */
+img:hover {
+    filter: none;
+    transform: scale(1.1);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Järjestetty lista: vaaleansininen tausta, sininen reunus,
+   pyöristetyt kulmat ja tummansininen teksti */
+ol {
+    background-color: #e8f4fd;
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    padding: 12px 12px 12px 36px;
+    max-width: 400px;
+    list-style-type: decimal;
+    color: #1a3a5c;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* Järjestämätön lista: lämmin keltainen tausta, kultainen reunus,
+   neliömäiset luettelomerkit ja ruskea teksti */
+ul {
+    background-color: #fef9e7;
+    border: 2px solid goldenrod;
+    border-radius: 8px;
+    padding: 12px 12px 12px 36px;
+    max-width: 400px;
+    list-style-type: square;
+    color: #5d4037;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+/* Lomake: valkoinen kortti, sininen reunus, pyöristetyt kulmat ja hienovarainen varjo */
+form {
+    background-color: #ffffff;
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    padding: 24px 28px;
+    max-width: 400px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lomakkeen kentän otsikko: lihavoi, näyttää omalla rivillään */
+form label {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+}
+
+/* Teksti- ja sähköpostikentät: täysi leveys, pehmuste, pyöristetyt kulmat
+   ja vaaleansininen tausta */
+form input[type="text"],
+form input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #f0f4f8;
+}
+
+/* =====================================================
+   CSS PSEUDO-CLASSES (pseudo-luokat)
+   =====================================================
+   Pseudo-luokka valitsee elementin tietyssä tilassa tai rakenteellisen
+   asemansa perusteella. Se kirjoitetaan yksipisteisellä etuliitteellä:
+     elementti:pseudo-luokka { ... }
+
+   Yleisimmät pseudo-luokat:
+   - :hover        = kun hiiri on elementin päällä
+   - :focus        = kun elementti on aktiivisena (esim. kenttä valittuna)
+   - :first-child  = ensimmäinen sisaruksista
+   - :last-child   = viimeinen sisaruksista
+   - :nth-child(n) = n:s sisarus; voidaan käyttää odd/even tai kaavaa
+   ===================================================== */
+
+/* :nth-child(odd) ja :nth-child(even): raidoitettu listanäkymä
+   Parittomat kohdat (1, 3) saavat vaaleamman taustan,
+   parilliset kohdat (2) hieman tummemman - helppo tapa erottaa rivit toisistaan */
+ol li:nth-child(odd) {
+    background-color: #d0e8f8;
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+ol li:nth-child(even) {
+    background-color: #b8d8f0;
+    border-radius: 4px;
+    padding-left: 4px;
+}
+
+/* :first-child ja :last-child: korostetaan listan ensimmäinen ja viimeinen kohta */
+ul li:first-child {
+    color: goldenrod;
+    text-decoration: underline;
+}
+
+ul li:last-child {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* :focus: kun käyttäjä klikkaa tai tab-näppäimellä siirtyy kenttään,
+   reunus muuttuu erottuvaksi ja tausta vaalenee */
+form input[type="text"]:focus,
+form input[type="email"]:focus {
+    outline: none;
+    border: 2px solid #1a3a5c;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(70, 130, 180, 0.5);
+}
+
+/* :hover submit-napille: nappi muuttuu interaktiiviseksi hoverin aikana */
+form input[type="submit"] {
+    background-color: steelblue;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1a3a5c;
+}
+
+/* =====================================================
+   CSS PSEUDO-ELEMENTS (pseudo-elementit)
+   =====================================================
+   Pseudo-elementti viittaa elementin tiettyyn osaan tai luo uuden
+   "virtuaalisen" elementin HTML-koodia muuttamatta.
+   Se kirjoitetaan kaksipisteisellä etuliitteellä:
+     elementti::pseudo-elementti { ... }
+
+   Yleisimmät pseudo-elementit:
+   - ::before      = lisää sisältöä elementin eteen (vaatii content-ominaisuuden)
+   - ::after       = lisää sisältöä elementin jälkeen (vaatii content-ominaisuuden)
+   - ::first-letter = tyylittää kappaleen ensimmäisen kirjaimen
+   - ::first-line   = tyylittää kappaleen ensimmäisen rivin
+   =====================================================  */
+
+/* ::before: lisää dekoratiivisen symbolin h2-otsikoiden eteen automaattisesti
+   content-ominaisuus määrittää lisättävän tekstin tai merkin */
+h2::before {
+    content: "▸ ";
+    color: steelblue;
+}
+
+/* ::first-letter: kappaleen ensimmäinen kirjain suurennetaan drop cap -tyyliin */
+p::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: steelblue;
+    float: left;
+    line-height: 1;
+    margin-right: 4px;
+}
+
+/* ::after: lisää visuaalisen viivan h2-otsikon alle */
+h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: steelblue;
+    margin-top: 4px;
+    border-radius: 2px;
+}
