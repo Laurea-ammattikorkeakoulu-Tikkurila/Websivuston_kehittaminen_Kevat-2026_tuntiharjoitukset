@@ -3,7 +3,7 @@
 /* Sivun runko: keskitetään sisältö, asetetaan taustaväri,
    maksimileveys, automaattiset marginaalit ja fonttiperhe */
 body {
-    background-color: #f0f4f8;
+    background-color: #d1d9e1;
     max-width: 700px;
     margin: 40px auto;
     padding: 0 24px;
@@ -122,8 +122,7 @@ form input[type="submit"]:hover {
     background-color: #1a3a5c;
 }
 
-/*
+
 body {
-    background-color: #1484f3;
+    background-color: #d4dbe2;
 }
-*/
