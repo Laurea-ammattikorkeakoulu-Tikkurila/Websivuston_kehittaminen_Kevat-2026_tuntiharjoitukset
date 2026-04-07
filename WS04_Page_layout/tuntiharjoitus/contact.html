@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS04 – Contact</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER: animated banner, same @keyframes animation as WS03 -->
+    <header>
+        <div class="animated-banner">WS04 – Page Layout with CSS Grid &amp; Flexbox</div>
+    </header>
+
+    <!-- NAV: horizontal navbar built with Flexbox -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <!-- LAYOUT GRID: CSS Grid wrapper – sidebar (aside) + main content -->
+    <div class="layout-grid">
+
+        <!-- SIDEBAR -->
+        <aside>
+            <h2>Page Layout</h2>
+            <p>CSS provides two modern layout systems for building page structures.</p>
+
+            <h3>Semantic elements</h3>
+            <ul>
+                <li><code>&lt;header&gt;</code> – site or section header</li>
+                <li><code>&lt;nav&gt;</code> – navigation links</li>
+                <li><code>&lt;main&gt;</code> – primary page content</li>
+                <li><code>&lt;aside&gt;</code> – sidebar / supplementary content</li>
+                <li><code>&lt;footer&gt;</code> – site or section footer</li>
+            </ul>
+
+            <h3>CSS Flexbox</h3>
+            <p>One-dimensional layout — rows <em>or</em> columns. Used here for the navbar.</p>
+            <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank" rel="noopener">W3Schools – CSS
+                Flexbox</a>
+
+            <h3>CSS Grid</h3>
+            <p>Two-dimensional layout — rows <em>and</em> columns. Used here for the sidebar + main layout.</p>
+            <a href="https://www.w3schools.com/css/css_grid.asp" target="_blank" rel="noopener">W3Schools – CSS Grid</a>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main>
+
+            <section>
+                <h2>Contact</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+
+        </main>
+    </div><!-- /.layout-grid -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jari Kovis, Laurea-ammattikorkeakoulu</p>
+    </footer>
+
+</body>
+
+</html>
