@@ -19,13 +19,13 @@ Opintojakson suoritettuaan opiskelija osaa:
 
 Opintojakson sisältö koostuu seuraavista moduuleista:
 
-- WS01_HTML
-- WS02_CSS
-- WS03_CSS_Advanced
-- WS04_Page_Layout
-- WS05_Responsive_Design
-- WS06_Bootstrap
-- WS07_Project
+- [WS01_HTML (Landing page)](WS01_HTML/index.html)
+- [WS02_CSS (Landing page)](WS02_CSS/index.html)
+- [WS03_CSS_Advanced (Landing page)](WS03_CSS_advanced/tuntiharjoitus/index.html)
+- [WS04_Page_Layout (Landing page)](WS04_Page_layout/tuntiharjoitus/index.html)
+- WS05_Responsive_Design (ei julkaistua landing pagea vielä)
+- WS06_Bootstrap (ei julkaistua landing pagea vielä)
+- WS07_Project (ei julkaistua landing pagea vielä)
 
 ## Suositeltu kansiorakenne
 
