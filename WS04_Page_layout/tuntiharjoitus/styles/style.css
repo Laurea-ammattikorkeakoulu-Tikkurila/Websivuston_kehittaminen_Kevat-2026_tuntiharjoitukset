@@ -40,23 +40,43 @@ header {
 }
 
 
-/* ── 4. ANIMATED BANNER (ported from WS03) ───────── */
+/* ── 4. PROFESSIONAL HEADER ──────────────────────── */
 @keyframes slideInDown {
     from { transform: translateY(-40px); opacity: 0; }
     to   { transform: translateY(0);     opacity: 1; }
 }
 
-.animated-banner {
-    background-color: steelblue;
+.site-header__content {
+    background: linear-gradient(120deg, #1a3a5c 0%, #2f5f89 65%, #4682b4 100%);
     color: #ffffff;
-    font-family: Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 14px 20px;
-    border-radius: 8px;
+    padding: 18px 24px 20px;
+    border-radius: 10px 10px 0 0;
     margin-bottom: 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
     animation: slideInDown 0.8s ease-out forwards;
+}
+
+.site-header__kicker {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #cfe4f6;
+    margin-bottom: 6px;
+}
+
+.site-header__title {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.site-header__subtitle {
+    margin-top: 8px;
+    font-size: 0.98rem;
+    color: #e6f1fa;
+    max-width: 65ch;
 }
 
 
