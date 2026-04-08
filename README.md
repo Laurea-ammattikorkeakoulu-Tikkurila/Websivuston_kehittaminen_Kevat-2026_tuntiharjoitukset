@@ -20,7 +20,7 @@ Opintojakson suoritettuaan opiskelija osaa:
 Opintojakson sisältö koostuu seuraavista moduuleista:
 
 - [WS01_HTML (Landing page)](https://laurea-ammattikorkeakoulu-tikkurila.github.io/Websivuston_kehittaminen_Kevat-2026_tuntiharjoitukset/WS01_HTML/index.html)
-- [WS02_CSS (Landing page)](https://laurea-ammattikorkeakoulu-tikkurila.github.io/Websivuston_kehittaminen_Kevat-2026_tuntiharjoitukset/WS02_CSS/index.html)
+- [WS02_CSS (Landing page)](https://laurea-ammattikorkeakoulu-tikkurila.github.io/Websivuston_kehittaminen_Kevat-2026_tuntiharjoitukset/WS02_CSS/tuntiharjoitus/index.html)
 - [WS03_CSS_Advanced (Landing page)](https://laurea-ammattikorkeakoulu-tikkurila.github.io/Websivuston_kehittaminen_Kevat-2026_tuntiharjoitukset/WS03_CSS_advanced/tuntiharjoitus/index.html)
 - [WS04_Page_Layout (Landing page)](https://laurea-ammattikorkeakoulu-tikkurila.github.io/Websivuston_kehittaminen_Kevat-2026_tuntiharjoitukset/WS04_Page_layout/tuntiharjoitus/index.html)
 - WS05_Responsive_Design (ei julkaistua landing pagea vielä)
