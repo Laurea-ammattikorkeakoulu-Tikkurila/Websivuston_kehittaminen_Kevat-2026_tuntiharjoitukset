@@ -1,48 +1,49 @@
-# WS04_Page_layout - Page Layout with CSS Grid and Flexbox
+# WS04_Page_layout – Sivuasettelu CSS Grid- ja Flexbox-menetelmillä
 
-This exercise expands the WS03 advanced CSS work into a multi-page website with a consistent page layout.
+Tämä harjoitus laajentaa WS03:n edistyneen CSS:n moniosaisen sivuston rakentamiseen
+yhtenäisellä sivuasettelulla.
 
-## What was implemented
+## Mitä on toteutettu
 
-1. Multi-page structure
-- Home page: `index.html`
-- Gallery page: `gallery.html`
-- Contact page: `contact.html`
+1. Moniosainen sivusto
+- Etusivu: `index.html`
+- Kuvagalleria: `gallery.html`
+- Yhteystiedot: `contact.html`
 
-2. Shared semantic layout on every page
-- `<header>` for page title/banner
-- `<nav>` for page navigation
-- `<aside>` for supporting content
-- `<main>` for primary page content
-- `<footer>` for footer information
+2. Yhteinen semanttinen rakenne jokaisella sivulla
+- `<header>` — sivun otsikko ja banneri
+- `<nav>` — sivuston navigaatio
+- `<aside>` — sivupalkki, täydentävä sisältö
+- `<main>` — sivun pääsisältö
+- `<footer>` — alatunniste
 
-3. CSS Grid for page structure
-- A two-column layout is used for the content area:
-  - Left column: sidebar (`<aside>`)
-  - Right column: main content (`<main>`)
+3. CSS Grid sivurakenteessa
+- Sisältöalue on toteutettu kaksipalstaisena asetteluna:
+  - Vasen sarake: sivupalkki (`<aside>`)
+  - Oikea sarake: pääsisältö (`<main>`)
 
-4. Flexbox for navigation
-- The top navigation bar is built with Flexbox for horizontal alignment and spacing of links.
+4. Flexbox navigaatiossa
+- Ylänavigaatio on rakennettu Flexboxilla linkkien vaakasuuntaista tasausta ja välejä varten.
 
-5. Responsive behavior
-- On smaller screens (max-width: 700px), the layout changes from two columns to one column.
-- Sidebar sticky behavior is disabled on mobile for better usability.
+5. Responsiivinen käyttäytyminen
+- Kapeilla näytöillä (max-width: 700 px) asettelu muuttuu yhdeksi palstaksi.
+- Sivupalkin sticky-toiminta on poistettu käytöstä mobiililla käytettävyyden parantamiseksi.
 
-6. Reused and extended WS03 advanced CSS features
-- `@keyframes` animation for the banner
-- Hover transitions on images
-- Styled lists with pseudo-classes (`:nth-child`, `:first-child`, `:last-child`)
-- Pseudo-elements (`::before`, `::after`, `::first-letter`)
-- Styled form with focus and hover states
+6. WS03:n edistyneet CSS-ominaisuudet säilytetty ja laajennettu
+- `@keyframes`-animaatio bannerissa
+- Hover-siirtymät kuvissa
+- Tyylitellyt listat pseudoluokilla (`:nth-child`, `:first-child`, `:last-child`)
+- Pseudoelementit (`::before`, `::after`, `::first-letter`)
+- Tyylitelty lomake focus- ja hover-tiloilla
 
-7. Aside content improvements
-- Basic page layout concept explanation
-- Semantic elements summary
-- External learning links:
+7. Sivupalkin sisältö päivitetty
+- Sivuasettelun peruskäsitteiden selitys
+- Semanttisten elementtien yhteenveto
+- Linkit ulkoisiin oppimislähteisiin:
   - W3Schools CSS Flexbox
   - W3Schools CSS Grid
 
-## Folder structure
+## Kansiorakenne
 
 ```text
 WS04_Page_layout/
@@ -58,12 +59,12 @@ WS04_Page_layout/
         └── style.css
 ```
 
-## Learning goals
+## Oppimistavoitteet
 
-After this exercise, you should be able to:
-- Build a multi-page website with a shared layout
-- Use semantic HTML structure clearly
-- Apply CSS Grid for high-level page layout
-- Apply Flexbox for component-level layout
-- Keep styling reusable with one external stylesheet
-- Add responsive behavior with media queries
+Tämän harjoituksen jälkeen opiskelija osaa:
+- Rakentaa moniosaisen sivuston yhteisellä asettelulla
+- Käyttää semanttista HTML-rakennetta selkeästi
+- Soveltaa CSS Gridiä sivun ylätason asetteluun
+- Soveltaa Flexboxia komponenttitason asetteluun
+- Pitää tyylit uudelleenkäytettävinä yhdellä ulkoisella tyylitiedostolla
+- Lisätä responsiivisen käyttäytymisen mediakyselyillä
