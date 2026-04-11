@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport meta tag: required for responsive design to work on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS05 – Gallery</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- ── HEADER ──────────────────────────────────────────────────
+         min-height: 30vh = always at least 30% of the viewport height.
+         h1 uses clamp(1.2rem, 4vw, 1.7rem) for fluid font sizing.
+    ──────────────────────────────────────────────────────────────── -->
+    <header class="site-header">
+        <div class="site-header__content">
+            <span class="site-header__kicker">Laurea University of Applied Sciences</span>
+            <h1 class="site-header__title">WS05 – Gallery</h1>
+            <div class="site-header__subtitle">
+                Responsive image grid — columns auto-reflow using CSS Grid <code>auto-fit</code>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── RESPONSIVE NAVIGATION ────────────────────────────────────
+         Same checkbox-hack hamburger menu as index.html.
+         The .active class marks the current page (Gallery).
+    ──────────────────────────────────────────────────────────────── -->
+    <nav>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="layout-grid">
+
+            <!-- ── SIDEBAR ──────────────────────────────────────────
+                 Hidden on mobile. Sticky on desktop.
+            ────────────────────────────────────────────────────────── -->
+            <aside>
+                <h2>Responsive Images</h2>
+                <p>Make images fluid with just two rules:</p>
+                <code>max-width: 100%;</code><br>
+                <code>height: auto;</code>
+
+                <h3>Fluid Grid</h3>
+                <p>The gallery uses <code>auto-fit</code> with <code>minmax(250px, 1fr)</code> — columns automatically reflow without any media queries.</p>
+
+                <h3>CSS Filters</h3>
+                <p>Images start in greyscale. Hover to reveal full colour and a scale transition (ported from WS03).</p>
+
+                <h3>Learn More</h3>
+                <a href="https://www.w3schools.com/css/css_grid.asp" target="_blank">W3Schools – CSS Grid</a><br>
+                <a href="https://www.w3schools.com/css/css3_images.asp" target="_blank">W3Schools – Responsive Images</a><br>
+                <a href="https://www.w3schools.com/cssref/css3_pr_filter.php" target="_blank">W3Schools – CSS filter</a>
+            </aside>
+
+            <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+            <main>
+                <!-- ── RESPONSIVE IMAGE GALLERY ──────────────────────
+                     .gallery-grid uses:
+                         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+                     This means:
+                     - Each column is at least 250px wide and grows to fill space equally
+                     - Columns wrap automatically when they don't fit
+                     - Mobile: 1 column | Tablet: 2 columns | Desktop: 3+ columns
+                     - No media queries needed for the column count!
+                ────────────────────────────────────────────────────── -->
+                <section>
+                    <h2>Image Gallery</h2>
+                    <p>
+                        This gallery uses <code>repeat(auto-fit, minmax(250px, 1fr))</code>.
+                        Resize your browser to see the columns reflow automatically — no media
+                        queries are needed for the grid itself.
+                    </p>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item">
+                            <img src="./images/Berfin.jpg" alt="Berfin">
+                            <figcaption>Berfin – hover to reveal colour</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <img src="./images/Jari_Hki.JPG" alt="Jari in Helsinki">
+                            <figcaption>Jari in Helsinki – hover to reveal colour</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <img src="./images/Berfin.jpg" alt="Berfin">
+                            <figcaption>Berfin – third column on desktop</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section>
+                    <!-- Ordered list with :nth-child() striping — ported from WS03 -->
+                    <h2>Ordered List</h2>
+                    <p>Odd and even items styled with <code>:nth-child(odd)</code> and <code>:nth-child(even)</code>.</p>
+                    <ol>
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <!-- Unordered list with :first-child / :last-child — ported from WS03 -->
+                    <h2>Unordered List</h2>
+                    <p>First item uses <code>:first-child</code>, last item uses <code>:last-child</code>.</p>
+                    <ul>
+                        <li>First item – styled with :first-child</li>
+                        <li>Second item</li>
+                        <li>Last item – styled with :last-child</li>
+                    </ul>
+                </section>
+            </main>
+
+        </div><!-- /.layout-grid -->
+    </div><!-- /.page-wrapper -->
+
+    <footer>
+        <p>&copy; 2026 Jari Kovis, Laurea-ammattikorkeakoulu</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+/* ============================================================
+   WS05 – Responsive Design
+   style.css — Mobile-first unified stylesheet
+   ============================================================ */
+
+/* ── 1. RESET & BASE ─────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+    font-family: Georgia, serif;
+    color: #2c3e50;
+}
+
+/* ── 2. CSS CUSTOM PROPERTIES (VARIABLES) ────────────────── */
+/* CSS variables let us define our colour palette once and   */
+/* reuse it everywhere. Change a value here and it updates  */
+/* throughout the entire stylesheet.                         */
+
+:root {
+    --color-primary:   steelblue;          /* #4682b4 */
+    --color-dark:      #1a3a5c;
+    --color-mid:       #2f5f89;
+    --color-light-bg:  #e8f4fd;
+    --color-bg:        #f0f4f8;
+    --color-gold:      goldenrod;
+    --color-text:      #2c3e50;
+    --color-white:     #ffffff;
+
+    --radius-sm:  4px;
+    --radius-md:  8px;
+    --radius-lg:  10px;
+
+    --shadow-sm:  3px 3px 10px rgba(0, 0, 0, 0.08);
+    --shadow-md:  4px 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg:  8px 8px 20px rgba(0, 0, 0, 0.4);
+    --shadow-hdr: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* ── 3. RESPONSIVE TYPOGRAPHY ────────────────────────────── */
+/* clamp(min, preferred, max) produces fluid font sizes that */
+/* scale with viewport width without needing media queries.  */
+
+h1 {
+    font-size: clamp(1.2rem, 4vw, 1.7rem);
+    margin: 0;
+    color: var(--color-white);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--color-dark);
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: var(--color-dark);
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+p {
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    padding: 12px 16px;
+    background: var(--color-white);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+}
+
+p::first-letter {
+    /* Drop-cap effect – ported from WS03 */
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    float: left;
+    line-height: 1;
+    margin-right: 4px;
+}
+
+/* h2 decorations – ported from WS03 */
+h2::before {
+    content: "▸ ";
+    color: var(--color-primary);
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+/* ── 4. PAGE WRAPPER ─────────────────────────────────────── */
+/* Constrain max-width and centre on large screens.          */
+
+.page-wrapper {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── 5. SITE HEADER ──────────────────────────────────────── */
+/* Gradient banner with responsive typography via clamp().   */
+/* min-height: 30vh keeps the header proportional to the     */
+/* viewport height — a viewport-unit technique.              */
+
+.site-header {
+    padding: 16px 16px 0;
+}
+
+.site-header__content {
+    background: linear-gradient(120deg, var(--color-dark) 0%, var(--color-mid) 65%, var(--color-primary) 100%);
+    color: var(--color-white);
+    padding: 18px 20px 20px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: var(--shadow-hdr);
+    min-height: 30vh;                   /* viewport-unit: proportional height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    animation: slideInDown 0.8s ease-out forwards;
+}
+
+.site-header__kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #cfe4f6;
+    margin-bottom: 6px;
+}
+
+.site-header__subtitle {
+    margin-top: 8px;
+    font-size: clamp(0.85rem, 2vw, 0.98rem);
+    color: #e6f1fa;
+}
+
+/* ── 6. RESPONSIVE NAVIGATION ───────────────────────────── */
+/* CSS-only hamburger menu using the checkbox hack:          */
+/*   - #nav-toggle (checkbox) is hidden visually             */
+/*   - .nav-toggle-label (label) acts as the ☰ button        */
+/*   - .nav-links is hidden until checkbox is checked        */
+/* On desktop the checkbox/label are hidden and links are    */
+/* always visible in a flex row.                             */
+
+nav {
+    background-color: var(--color-dark);
+    padding: 0 16px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    margin-bottom: 24px;
+    position: relative;
+}
+
+/* Hide the actual checkbox */
+.nav-toggle {
+    display: none;
+}
+
+/* Hamburger icon label — visible on mobile */
+.nav-toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    color: var(--color-white);
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+}
+
+/* Three-bar hamburger icon using ::after */
+.nav-toggle-label::after {
+    content: "☰";
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+/* Nav links: hidden by default on mobile, stacked vertically */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+}
+
+/* Show nav links when checkbox is checked (hamburger toggled) */
+.nav-toggle:checked ~ .nav-links {
+    display: flex;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--color-primary);
+}
+
+.nav-links a.active {
+    background-color: var(--color-primary);
+    pointer-events: none;
+}
+
+/* ── 7. LAYOUT GRID ──────────────────────────────────────── */
+/* Mobile-first: single column (block layout).               */
+/* The sidebar is hidden below tablet breakpoint.            */
+
+.layout-grid {
+    display: block;
+    margin-bottom: 32px;
+}
+
+/* ── 8. ASIDE / SIDEBAR ──────────────────────────────────── */
+/* Hidden on mobile; shown above main on tablet;             */
+/* sticky sidebar on desktop.                                */
+
+aside {
+    display: none;              /* hidden on mobile */
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 20px 18px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+}
+
+aside h2::before,
+aside h2::after {
+    /* Remove decorators inside sidebar headings */
+    display: none;
+}
+
+aside h3 {
+    color: var(--color-dark);
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+aside code {
+    background-color: var(--color-light-bg);
+    color: var(--color-dark);
+    font-family: monospace;
+    font-size: 0.9rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: 1px solid #b8d8f0;
+}
+
+aside a {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: color 0.2s ease;
+}
+
+aside a:hover {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+/* Override paragraph styles inside aside */
+aside p {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+aside p::first-letter {
+    /* Reset drop-cap in sidebar */
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    float: none;
+    margin-right: 0;
+}
+
+/* ── 9. MAIN CONTENT ─────────────────────────────────────── */
+
+main section {
+    margin-bottom: 32px;
+}
+
+/* ── 10. RESPONSIVE IMAGE GALLERY ───────────────────────── */
+/* repeat(auto-fit, minmax(250px, 1fr)) automatically        */
+/* reflows columns based on available space — no media       */
+/* queries needed for the column count itself.               */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.gallery-item {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive images: fluid by default */
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%) brightness(80%);  /* WS03 filter effect */
+    transition: all 0.5s ease-in-out;
+    border-radius: var(--radius-md);
+}
+
+img:hover {
+    filter: none;
+    transform: scale(1.04);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-item img {
+    border-radius: 0;
+    transform: none;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.04);
+}
+
+.gallery-item figcaption {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    border-top: 1px solid var(--color-light-bg);
+}
+
+/* ── 11. LISTS ───────────────────────────────────────────── */
+/* Ordered list — ported from WS03 with :nth-child striping  */
+
+ol {
+    background-color: var(--color-light-bg);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: 12px 12px 12px 36px;
+    list-style: decimal;
+    color: var(--color-dark);
+    line-height: 2;
+}
+
+ol li:nth-child(odd) {
+    background-color: #d0e8f8;
+    border-radius: var(--radius-sm);
+    padding-left: 4px;
+}
+
+ol li:nth-child(even) {
+    background-color: #b8d8f0;
+    border-radius: var(--radius-sm);
+    padding-left: 4px;
+}
+
+/* Unordered list — with :first-child and :last-child        */
+
+ul {
+    background-color: #fef9e7;
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    padding: 12px 12px 12px 36px;
+    list-style: square;
+    color: #5d4037;
+    line-height: 2;
+}
+
+ul li:first-child {
+    color: var(--color-gold);
+    text-decoration: underline;
+}
+
+ul li:last-child {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* ── 12. FORM ────────────────────────────────────────────── */
+/* Responsive form: full width on mobile, max-width on       */
+/* tablet+. Reuses WS03/WS04 focus and hover states.         */
+
+form {
+    background: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    box-shadow: var(--shadow-sm);
+    width: 100%;             /* full width on mobile */
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    margin-bottom: 4px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: Georgia, serif;
+    box-sizing: border-box;
+    background: #f0f4f8;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--color-dark);
+    background: var(--color-white);
+    box-shadow: 0 0 6px rgba(70, 130, 180, 0.5);
+}
+
+form input[type="submit"] {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background: var(--color-dark);
+}
+
+/* ── 13. FOOTER ──────────────────────────────────────────── */
+
+footer {
+    background-color: var(--color-dark);
+    color: #c8d8e8;
+    text-align: center;
+    padding: 16px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    margin-top: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #c8d8e8;
+}
+
+footer p::first-letter {
+    /* Reset drop-cap in footer */
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    float: none;
+    margin-right: 0;
+}
+
+/* ── 14. ANIMATIONS & TRANSITIONS ───────────────────────── */
+/* Ported from WS03/WS04                                     */
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (mobile-first min-width queries)
+   ───────────────────────────────────────────────────────── */
+
+/* ── 15. MEDIA QUERY: TABLET (min-width: 600px) ─────────── */
+/* Layout stays single-column but sidebar becomes visible.   */
+/* Nav hamburger still shown (nav menu is compact).          */
+
+@media (min-width: 600px) {
+    .page-wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .site-header {
+        padding: 24px 24px 0;
+    }
+
+    .site-header__content {
+        padding: 22px 28px 24px;
+    }
+
+    nav {
+        padding: 0 24px;
+        margin-bottom: 28px;
+    }
+
+    /* Sidebar becomes visible on tablet (stacked above main) */
+    aside {
+        display: block;
+    }
+
+    /* Form gets max-width on tablet */
+    form {
+        max-width: 500px;
+    }
+
+    /* Gallery: 2 columns on tablet via auto-fit minmax */
+    .gallery-grid {
+        gap: 20px;
+    }
+}
+
+/* ── 16. MEDIA QUERY: DESKTOP (min-width: 900px) ────────── */
+/* CSS Grid two-column layout (sidebar + main).              */
+/* Hamburger menu hidden; nav links always visible in row.   */
+
+@media (min-width: 900px) {
+    .page-wrapper {
+        max-width: 1060px;
+    }
+
+    .site-header {
+        padding: 32px 32px 0;
+        max-width: 1060px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .site-header__content {
+        min-height: 28vh;
+    }
+
+    nav {
+        max-width: 1060px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 32px;
+    }
+
+    /* Hide hamburger; show nav links as flex row */
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;           /* always visible on desktop */
+        flex-direction: row;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        padding: 4px 8px;
+    }
+
+    /* Switch to CSS Grid two-column layout */
+    .layout-grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;   /* fixed sidebar + flexible main */
+        gap: 28px;
+        align-items: start;
+        max-width: 1060px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    /* Sticky sidebar on desktop */
+    aside {
+        position: sticky;
+        top: 16px;
+        margin-bottom: 0;
+    }
+
+    /* Cap image width on desktop for non-gallery images */
+    main img:not(.gallery-item img) {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    footer {
+        max-width: 1060px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ── 17. MEDIA QUERY: WIDE (min-width: 1200px) ──────────── */
+/* Slightly wider max-width, larger gap, bigger header.      */
+
+@media (min-width: 1200px) {
+    .page-wrapper,
+    .site-header,
+    nav,
+    .layout-grid,
+    footer {
+        max-width: 1100px;
+    }
+
+    .layout-grid {
+        gap: 36px;
+    }
+
+    .site-header__content {
+        padding: 28px 36px 30px;
+    }
+}

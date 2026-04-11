@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport meta tag: required for responsive design to work on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS05 – Contact</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- ── HEADER ──────────────────────────────────────────────────
+         min-height: 30vh = proportional header using viewport units.
+         h1 uses clamp(1.2rem, 4vw, 1.7rem) for fluid font sizing.
+    ──────────────────────────────────────────────────────────────── -->
+    <header class="site-header">
+        <div class="site-header__content">
+            <span class="site-header__kicker">Laurea University of Applied Sciences</span>
+            <h1 class="site-header__title">WS05 – Contact</h1>
+            <div class="site-header__subtitle">
+                Responsive form — full width on mobile, max-width on larger screens
+            </div>
+        </div>
+    </header>
+
+    <!-- ── RESPONSIVE NAVIGATION ────────────────────────────────────
+         Same checkbox-hack hamburger menu as index.html.
+         The .active class marks the current page (Contact).
+    ──────────────────────────────────────────────────────────────── -->
+    <nav>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <div class="layout-grid">
+
+            <!-- ── SIDEBAR ──────────────────────────────────────────
+                 Hidden on mobile. Sticky on desktop.
+            ────────────────────────────────────────────────────────── -->
+            <aside>
+                <h2>Responsive Forms</h2>
+                <p>On mobile the form uses full viewport width. On tablet and desktop it gets <code>max-width: 500px</code> via a media query.</p>
+
+                <h3>Input Focus State</h3>
+                <p>Click or tab into a field to see the <code>:focus</code> pseudo-class change the border colour and add a glow shadow (ported from WS03).</p>
+
+                <h3>Submit Button</h3>
+                <p>Hover the Submit button to see the <code>:hover</code> colour transition.</p>
+
+                <h3>Learn More</h3>
+                <a href="https://www.w3schools.com/css/css_form.asp" target="_blank">W3Schools – CSS Forms</a><br>
+                <a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank">W3Schools – Media Queries</a><br>
+                <a href="https://www.w3schools.com/cssref/sel_focus.php" target="_blank">W3Schools – :focus selector</a>
+            </aside>
+
+            <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+            <main>
+                <!-- ── RESPONSIVE CONTACT FORM ───────────────────────
+                     Responsive behaviour:
+                     - Mobile (<600px): form is full width, fields stack vertically
+                     - Tablet (600px+): form gets max-width: 500px
+                     - Desktop (900px+): same max-width, sits inside CSS Grid main area
+                     Input focus state: outlined with :focus pseudo-class (WS03 technique)
+                     Submit button hover: :hover changes background (WS03 technique)
+                ────────────────────────────────────────────────────── -->
+                <section>
+                    <h2>Contact</h2>
+                    <p>
+                        This form is <strong>full width on mobile</strong> and gains a
+                        <code>max-width: 500px</code> constraint on tablet and desktop via a
+                        <code>min-width: 600px</code> media query. Resize the window to see
+                        the difference.
+                    </p>
+
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your name">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Your message..."></textarea>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </section>
+            </main>
+
+        </div><!-- /.layout-grid -->
+    </div><!-- /.page-wrapper -->
+
+    <footer>
+        <p>&copy; 2026 Jari Kovis, Laurea-ammattikorkeakoulu</p>
+    </footer>
+
+</body>
+</html>
