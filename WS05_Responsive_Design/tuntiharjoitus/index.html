@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport meta tag: tells mobile browsers to use the real screen width
+         and not zoom out. Without this, responsive design will not work. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS05 – Responsive Design</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- ── HEADER ──────────────────────────────────────────────────
+         The header uses min-height: 30vh so it scales with viewport
+         height (a viewport-unit technique).
+         The h1 title uses clamp() for fluid responsive typography —
+         see styles/style.css section 3.
+    ──────────────────────────────────────────────────────────────── -->
+    <header class="site-header">
+        <div class="site-header__content">
+            <span class="site-header__kicker">Laurea University of Applied Sciences</span>
+            <h1 class="site-header__title">WS05 – Responsive Design</h1>
+            <div class="site-header__subtitle">
+                Building websites that adapt to any screen size — mobile-first with CSS media queries
+            </div>
+        </div>
+    </header>
+
+    <!-- ── RESPONSIVE NAVIGATION ────────────────────────────────────
+         CSS-only hamburger menu using the checkbox hack (no JavaScript).
+
+         How it works:
+         1. A hidden <input type="checkbox"> with id="nav-toggle"
+         2. A <label> styled as a ☰ hamburger button
+         3. .nav-links is hidden (display:none) by default on mobile
+         4. When the checkbox is checked, CSS selector
+            #nav-toggle:checked ~ .nav-links switches it to display:flex
+         5. On desktop (min-width: 900px), the label is hidden and
+            .nav-links is always visible as a horizontal flex row.
+    ──────────────────────────────────────────────────────────────── -->
+    <nav>
+        <!-- Hidden checkbox — the toggle state is stored here -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <!-- Clicking this label checks/unchecks the checkbox above -->
+        <label for="nav-toggle" class="nav-toggle-label">Menu</label>
+        <!-- Nav links: hidden on mobile until hamburger is clicked -->
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ── LAYOUT GRID ──────────────────────────────────────────────
+         Mobile: single column (block layout, no sidebar shown)
+         Tablet (600px+): sidebar visible, stacked above main
+         Desktop (900px+): CSS Grid two-column (260px sidebar + 1fr main)
+    ──────────────────────────────────────────────────────────────── -->
+    <div class="page-wrapper">
+        <div class="layout-grid">
+
+            <!-- ── SIDEBAR ──────────────────────────────────────────
+                 Hidden on mobile. Shows on tablet (600px+).
+                 Becomes sticky on desktop (900px+).
+            ────────────────────────────────────────────────────────── -->
+            <aside>
+                <h2>Responsive Design</h2>
+                <p>One site that works everywhere — from a 360px phone to a 4K monitor.</p>
+
+                <h3>Viewport Meta Tag</h3>
+                <p>Always include this in <code>&lt;head&gt;</code>:</p>
+                <code>width=device-width, initial-scale=1.0</code>
+
+                <h3>Mobile-First Approach</h3>
+                <p>Write base styles for mobile, then add <code>min-width</code> media queries for larger screens.</p>
+
+                <h3>Breakpoints in use</h3>
+                <ul style="background:none;border:none;padding-left:18px;line-height:1.8;">
+                    <li>Base — mobile (&lt;600px)</li>
+                    <li>600px — tablet</li>
+                    <li>900px — desktop</li>
+                    <li>1200px — wide screen</li>
+                </ul>
+
+                <h3>Fluid Typography</h3>
+                <p><code>clamp(min, preferred, max)</code> scales font size with viewport width.</p>
+
+                <h3>Learn More</h3>
+                <a href="https://www.w3schools.com/css/css_rwd_intro.asp" target="_blank">W3Schools – Responsive Web Design</a><br>
+                <a href="https://www.w3schools.com/css/css3_mediaqueries.asp" target="_blank">W3Schools – Media Queries</a><br>
+                <a href="https://www.w3schools.com/css/css_viewport.asp" target="_blank">W3Schools – Viewport Units</a>
+            </aside>
+
+            <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+            <main>
+                <section>
+                    <h2>Welcome to WS05</h2>
+                    <p>
+                        This module builds on the page layout skills from WS04 and introduces
+                        <strong>responsive design</strong> — the practice of building websites
+                        that adapt to any screen size. Resize your browser window or open DevTools
+                        (F12) to see the layout change!
+                    </p>
+                </section>
+
+                <section>
+                    <!-- Ordered list with :nth-child() striping — ported from WS03 -->
+                    <h2>What you will find here</h2>
+                    <ol>
+                        <li><a href="gallery.html">Gallery</a> – responsive image grid using <code>auto-fit minmax()</code></li>
+                        <li><a href="contact.html">Contact</a> – responsive form that adapts to screen width</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <!-- Unordered list with :first-child / :last-child — ported from WS03 -->
+                    <h2>New CSS features in WS05</h2>
+                    <ul>
+                        <li>CSS Custom Properties (variables)</li>
+                        <li>Mobile-first <code>min-width</code> media queries</li>
+                        <li>Fluid typography with <code>clamp()</code></li>
+                        <li>CSS-only hamburger navigation (checkbox hack)</li>
+                        <li><code>repeat(auto-fit, minmax())</code> for fluid grids</li>
+                        <li>Viewport units (<code>vw</code>, <code>vh</code>)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>How to test responsive design</h2>
+                    <p>
+                        Open your browser's Developer Tools with <strong>F12</strong> and click
+                        the device toolbar icon (phone/tablet icon). Try switching between
+                        different device presets or drag the viewport width manually.
+                        Watch the navigation, sidebar, and layout respond at 600px, 900px,
+                        and 1200px breakpoints.
+                    </p>
+                </section>
+            </main>
+
+        </div><!-- /.layout-grid -->
+    </div><!-- /.page-wrapper -->
+
+    <footer>
+        <p>&copy; 2026 Jari Kovis, Laurea-ammattikorkeakoulu</p>
+    </footer>
+
+</body>
+</html>
