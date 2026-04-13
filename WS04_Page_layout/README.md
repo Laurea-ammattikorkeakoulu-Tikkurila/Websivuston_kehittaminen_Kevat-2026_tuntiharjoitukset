@@ -25,18 +25,14 @@ yhtenäisellä sivuasettelulla.
 4. Flexbox navigaatiossa
 - Ylänavigaatio on rakennettu Flexboxilla linkkien vaakasuuntaista tasausta ja välejä varten.
 
-5. Responsiivinen käyttäytyminen
-- Kapeilla näytöillä (max-width: 700 px) asettelu muuttuu yhdeksi palstaksi.
-- Sivupalkin sticky-toiminta on poistettu käytöstä mobiililla käytettävyyden parantamiseksi.
-
-6. WS03:n edistyneet CSS-ominaisuudet säilytetty ja laajennettu
+5. WS03:n edistyneet CSS-ominaisuudet säilytetty ja laajennettu
 - `@keyframes`-animaatio bannerissa
 - Hover-siirtymät kuvissa
 - Tyylitellyt listat pseudoluokilla (`:nth-child`, `:first-child`, `:last-child`)
 - Pseudoelementit (`::before`, `::after`, `::first-letter`)
 - Tyylitelty lomake focus- ja hover-tiloilla
 
-7. Sivupalkin sisältö päivitetty
+6. Sivupalkin sisältö päivitetty
 - Sivuasettelun peruskäsitteiden selitys
 - Semanttisten elementtien yhteenveto
 - Linkit ulkoisiin oppimislähteisiin:
@@ -67,4 +63,3 @@ Tämän harjoituksen jälkeen opiskelija osaa:
 - Soveltaa CSS Gridiä sivun ylätason asetteluun
 - Soveltaa Flexboxia komponenttitason asetteluun
 - Pitää tyylit uudelleenkäytettävinä yhdellä ulkoisella tyylitiedostolla
-- Lisätä responsiivisen käyttäytymisen mediakyselyillä

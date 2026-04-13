@@ -36,7 +36,7 @@ footer {
 /* ── 3. HEADER ───────────────────────────────────── */
 header {
     padding-top: 32px;
-    padding-bottom: 0;
+    padding-bottom: 12;
 }
 
 
@@ -361,25 +361,4 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #1a3a5c;
-}
-
-
-/* ── 14. RESPONSIVE BREAKPOINT ───────────────────── */
-/*
- * On narrow screens the two-column grid collapses to a
- * single column so sidebar stacks above main content.
- */
-@media (max-width: 700px) {
-    .layout-grid {
-        grid-template-columns: 1fr;
-    }
-
-    aside {
-        position: static;   /* disable sticky on mobile */
-    }
-
-    nav {
-        flex-wrap: wrap;    /* allow nav links to wrap */
-        gap: 0.75rem;
-    }
 }
