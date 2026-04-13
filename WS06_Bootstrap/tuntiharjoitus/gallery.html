@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS06 – Gallery</title>
+    <!-- Bootstrap 5.3 CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- ── NAVBAR (identical on all pages) ───────────────────────── -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">WS06 Bootstrap</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ────────────────────────────────────────────── -->
+    <header class="site-hero py-5 text-white text-center">
+        <div class="container">
+            <p class="site-hero__kicker mb-1">Laurea University of Applied Sciences</p>
+            <h1 class="display-5 fw-bold">Photo Gallery</h1>
+            <p class="lead mt-2">
+                Responsive image grid using Bootstrap's <code>row-cols-*</code> classes
+            </p>
+        </div>
+    </header>
+
+    <!-- ── GALLERY ────────────────────────────────────────────────── -->
+    <!-- row-cols-1: 1 column on mobile
+         row-cols-sm-2: 2 columns on ≥576 px
+         row-cols-md-3: 3 columns on ≥768 px
+         g-4: gap (gutter) of 1.5rem between cards
+    -->
+    <main class="container my-5">
+
+        <div class="alert alert-info mb-4" role="alert">
+            <strong>Bootstrap technique:</strong>
+            <code>row-cols-1 row-cols-sm-2 row-cols-md-3</code> — columns reflow
+            automatically at each breakpoint. No custom media queries needed.
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin">
+                    <div class="card-body">
+                        <h5 class="card-title">Berfin</h5>
+                        <p class="card-text text-muted small">Portrait photo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari Helsinki">
+                    <div class="card-body">
+                        <h5 class="card-title">Jari – Helsinki</h5>
+                        <p class="card-text text-muted small">City portrait</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin – close up">
+                    <div class="card-body">
+                        <h5 class="card-title">Berfin – close up</h5>
+                        <p class="card-text text-muted small">Portrait photo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari – outdoors">
+                    <div class="card-body">
+                        <h5 class="card-title">Jari – outdoors</h5>
+                        <p class="card-text text-muted small">Outdoor portrait</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin – side view">
+                    <div class="card-body">
+                        <h5 class="card-title">Berfin – side view</h5>
+                        <p class="card-text text-muted small">Portrait photo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari – Helsinki city">
+                    <div class="card-body">
+                        <h5 class="card-title">Jari – Helsinki city</h5>
+                        <p class="card-text text-muted small">City portrait</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+    <footer class="site-footer text-center text-white py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">WS06 Bootstrap &mdash; Laurea University of Applied Sciences &mdash; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

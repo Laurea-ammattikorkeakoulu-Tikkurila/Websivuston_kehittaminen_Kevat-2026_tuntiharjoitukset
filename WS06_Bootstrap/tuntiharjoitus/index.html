@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS06 – Bootstrap Home</title>
+    <!-- Bootstrap 5.3 CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- ── NAVBAR ────────────────────────────────────────────────────
+         Bootstrap navbar-expand-md: links shown horizontally on medium
+         screens (≥768px) and collapsed behind a hamburger on smaller
+         screens. data-bs-toggle/target wires the JS collapse behaviour.
+         aria-current="page" marks the active link for accessibility.
+    ──────────────────────────────────────────────────────────────── -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">WS06 Bootstrap</a>
+
+            <!-- Hamburger button – visible only on small screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible link list -->
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── HERO / JUMBOTRON ───────────────────────────────────────── -->
+    <header class="site-hero py-5 text-white text-center">
+        <div class="container">
+            <p class="site-hero__kicker mb-1">Laurea University of Applied Sciences</p>
+            <h1 class="display-5 fw-bold">WS06 – Bootstrap</h1>
+            <p class="lead mt-2">
+                Building responsive websites fast with the Bootstrap 5 framework
+            </p>
+            <a href="info.html" class="btn btn-light btn-lg mt-3">Learn about Bootstrap</a>
+        </div>
+    </header>
+
+    <!-- ── MAIN CONTENT ───────────────────────────────────────────── -->
+    <main class="container my-5">
+
+        <h2 class="mb-4">What we cover in WS06</h2>
+
+        <!-- Three feature cards side-by-side on md+, stacked on mobile -->
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="badge bg-primary me-2">1</span>Bootstrap Grid
+                        </h5>
+                        <p class="card-text">
+                            Replace hand-written CSS Grid with Bootstrap's 12-column
+                            <code>container / row / col-*</code> system. Columns respond
+                            automatically to the screen size using breakpoint prefixes.
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Classes: <code>container</code>, <code>row</code>, <code>col-md-4</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="badge bg-primary me-2">2</span>Navbar &amp; Components
+                        </h5>
+                        <p class="card-text">
+                            Bootstrap's <code>navbar</code> component replaces the WS05
+                            CSS-only checkbox hamburger. The JS bundle handles toggling
+                            the mobile menu with full accessibility support.
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Classes: <code>navbar</code>, <code>navbar-toggler</code>, <code>collapse</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="badge bg-primary me-2">3</span>Utility Classes
+                        </h5>
+                        <p class="card-text">
+                            Bootstrap ships hundreds of utility classes for spacing,
+                            colour, typography and layout. Most styling in this exercise
+                            is done with these classes — not custom CSS.
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Classes: <code>mt-*</code>, <code>py-*</code>, <code>text-center</code>, <code>d-flex</code>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Photo preview row -->
+        <h2 class="mb-4">Featured photos</h2>
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin">
+                    <div class="card-body">
+                        <p class="card-text">Berfin</p>
+                        <a href="gallery.html" class="btn btn-outline-primary btn-sm">View gallery</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari Helsinki">
+                    <div class="card-body">
+                        <p class="card-text">Jari – Helsinki</p>
+                        <a href="gallery.html" class="btn btn-outline-primary btn-sm">View gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+    <footer class="site-footer text-center text-white py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">WS06 Bootstrap &mdash; Laurea University of Applied Sciences &mdash; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS bundle (includes Popper.js – required for navbar collapse) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

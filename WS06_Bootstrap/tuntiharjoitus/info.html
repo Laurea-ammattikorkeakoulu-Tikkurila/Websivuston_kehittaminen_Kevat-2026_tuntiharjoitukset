@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS06 – Info</title>
+    <!-- Bootstrap 5.3 CSS via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- ── NAVBAR (identical on all pages) ───────────────────────── -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">WS06 Bootstrap</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="info.html">Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── PAGE HEADER ────────────────────────────────────────────── -->
+    <header class="site-hero py-5 text-white text-center">
+        <div class="container">
+            <p class="site-hero__kicker mb-1">Laurea University of Applied Sciences</p>
+            <h1 class="display-5 fw-bold">About Bootstrap</h1>
+            <p class="lead mt-2">
+                Introduction, accordion components, and an image gallery — all built with Bootstrap 5
+            </p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+
+        <!-- ── BOOTSTRAP INTRODUCTION ─────────────────────────────── -->
+        <section class="mb-5">
+            <h2 class="mb-3">What is Bootstrap?</h2>
+
+            <p>
+                <span class="badge bg-primary me-1">Open source</span>
+                <span class="badge bg-secondary me-1">v5.3</span>
+                <span class="badge bg-success">Mobile-first</span>
+            </p>
+
+            <div class="alert alert-primary" role="alert">
+                <strong>Bootstrap</strong> is the world's most popular front-end framework.
+                It gives developers a ready-made toolkit of HTML, CSS and JavaScript components
+                so they can build responsive, accessible websites without writing everything from scratch.
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-2">
+                <div class="col">
+                    <div class="card h-100 border-primary">
+                        <div class="card-header bg-primary text-white">Without Bootstrap</div>
+                        <div class="card-body">
+                            <ul class="mb-0">
+                                <li>Write all CSS manually (WS02–WS05)</li>
+                                <li>Build your own responsive grid with CSS Grid / Flexbox</li>
+                                <li>Create hamburger menus with CSS checkbox hacks</li>
+                                <li>Style every form input individually</li>
+                                <li>Test across browsers for inconsistencies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 border-success">
+                        <div class="card-header bg-success text-white">With Bootstrap</div>
+                        <div class="card-body">
+                            <ul class="mb-0">
+                                <li>12-column responsive grid out of the box</li>
+                                <li>Pre-built navbar with working hamburger (JS)</li>
+                                <li>Consistent form styling with one class</li>
+                                <li>Cross-browser tested by the Bootstrap team</li>
+                                <li>Hundreds of utility classes replace custom CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── ACCORDION ──────────────────────────────────────────── -->
+        <!-- Bootstrap Accordion requires the JS bundle to work.
+             Each item has:
+             - accordion-item wrapper
+             - accordion-header with a button (accordion-button)
+             - accordion-collapse (hidden/shown by Bootstrap JS)
+             - accordion-body (the content)
+
+             data-bs-parent="#bootstrapAccordion" means only one panel
+             can be open at a time. Remove it to allow multiple open.
+        -->
+        <section class="mb-5">
+            <h2 class="mb-3">Bootstrap Key Concepts</h2>
+            <p class="text-muted mb-4">Click each heading to expand it.</p>
+
+            <div class="accordion" id="bootstrapAccordion">
+
+                <!-- Item 1 – History -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#acc-history" aria-expanded="true" aria-controls="acc-history">
+                            History &amp; Origins
+                        </button>
+                    </h3>
+                    <div id="acc-history" class="accordion-collapse collapse show" data-bs-parent="#bootstrapAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                Bootstrap was created by <strong>Mark Otto</strong> and
+                                <strong>Jacob Thornton</strong> at Twitter in 2011, originally
+                                to encourage consistency across internal tools. It was open-sourced
+                                in August 2011 and quickly became the most popular front-end
+                                framework in the world.
+                            </p>
+                            <ul>
+                                <li><strong>Bootstrap 2 (2012)</strong> — added responsive features</li>
+                                <li><strong>Bootstrap 3 (2013)</strong> — mobile-first redesign</li>
+                                <li><strong>Bootstrap 4 (2018)</strong> — switched from Less to Sass, added Flexbox grid
+                                </li>
+                                <li><strong>Bootstrap 5 (2021)</strong> — dropped jQuery, added utility API, updated
+                                    components</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 – Grid -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#acc-grid" aria-expanded="false" aria-controls="acc-grid">
+                            The 12-Column Grid System
+                        </button>
+                    </h3>
+                    <div id="acc-grid" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                Bootstrap's grid divides the page into <strong>12 equal columns</strong>.
+                                You choose how many columns each element uses at each breakpoint:
+                            </p>
+                            <table class="table table-bordered table-sm">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Class prefix</th>
+                                        <th>Breakpoint</th>
+                                        <th>Screen width</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>col-</code></td>
+                                        <td>Extra small</td>
+                                        <td>&lt; 576 px</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>col-sm-</code></td>
+                                        <td>Small</td>
+                                        <td>≥ 576 px</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>col-md-</code></td>
+                                        <td>Medium</td>
+                                        <td>≥ 768 px</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>col-lg-</code></td>
+                                        <td>Large</td>
+                                        <td>≥ 992 px</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>col-xl-</code></td>
+                                        <td>Extra large</td>
+                                        <td>≥ 1200 px</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 – Components -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#acc-components" aria-expanded="false" aria-controls="acc-components">
+                            Pre-built Components
+                        </button>
+                    </h3>
+                    <div id="acc-components" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+                        <div class="accordion-body">
+                            <p>Bootstrap ships with dozens of ready-to-use components:</p>
+                            <div class="row row-cols-2 row-cols-md-3 g-2">
+                                <div class="col"><span class="badge bg-primary w-100 py-2">Navbar</span></div>
+                                <div class="col"><span class="badge bg-secondary w-100 py-2">Cards</span></div>
+                                <div class="col"><span class="badge bg-success w-100 py-2">Accordion</span></div>
+                                <div class="col"><span class="badge bg-danger w-100 py-2">Modal</span></div>
+                                <div class="col"><span class="badge bg-warning text-dark w-100 py-2">Alerts</span></div>
+                                <div class="col"><span class="badge bg-info text-dark w-100 py-2">Tabs</span></div>
+                                <div class="col"><span class="badge bg-dark w-100 py-2">Buttons</span></div>
+                                <div class="col"><span class="badge bg-primary w-100 py-2">Forms</span></div>
+                                <div class="col"><span class="badge bg-secondary w-100 py-2">Tables</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 – Utilities -->
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#acc-utilities" aria-expanded="false" aria-controls="acc-utilities">
+                            Utility Classes
+                        </button>
+                    </h3>
+                    <div id="acc-utilities" class="accordion-collapse collapse" data-bs-parent="#bootstrapAccordion">
+                        <div class="accordion-body">
+                            <p>
+                                Utility classes let you style elements directly in HTML without
+                                writing any CSS. They follow a consistent naming pattern:
+                            </p>
+                            <table class="table table-striped table-sm">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Examples</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Spacing (margin)</td>
+                                        <td><code>mt-3</code>, <code>mb-4</code>, <code>mx-auto</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spacing (padding)</td>
+                                        <td><code>pt-2</code>, <code>py-5</code>, <code>px-3</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Text</td>
+                                        <td><code>text-center</code>, <code>text-muted</code>, <code>fw-bold</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colour</td>
+                                        <td><code>bg-primary</code>, <code>text-white</code>,
+                                            <code>border-success</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Display / Flex</td>
+                                        <td><code>d-flex</code>, <code>d-none</code>, <code>gap-2</code>,
+                                            <code>justify-content-center</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sizing</td>
+                                        <td><code>w-100</code>, <code>h-100</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── IMAGE GALLERY ──────────────────────────────────────── -->
+        <section>
+            <h2 class="mb-3">Image Gallery</h2>
+            <p class="text-muted mb-4">
+                Same <code>row-cols-*</code> technique as <a href="gallery.html">gallery.html</a>,
+                demonstrated again here on the info page.
+            </p>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Berfin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari Helsinki">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Jari – Helsinki</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin portrait">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Berfin – portrait</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari outdoors">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Jari – outdoors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Berfin.jpg" class="card-img-top" alt="Berfin side view">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Berfin – side view</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/Jari_Hki.JPG" class="card-img-top" alt="Jari city">
+                        <div class="card-body py-2">
+                            <p class="card-text small text-muted mb-0">Jari – city</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+    <footer class="site-footer text-center text-white py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">WS06 Bootstrap &mdash; Laurea University of Applied Sciences &mdash; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS bundle (required for accordion and navbar collapse) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+/* ============================================================
+   WS06 – Bootstrap
+   style.css — Custom overrides on top of Bootstrap 5
+   ============================================================
+   Only add styles here that Bootstrap does not provide.
+   Avoid duplicating Bootstrap's grid, spacing, or colour
+   variables — use Bootstrap utility classes in HTML instead.
+   ============================================================ */
+
+/* ── HERO / JUMBOTRON ───────────────────────────────────────
+   Bootstrap removes the old Jumbotron component in v5.
+   We recreate a simple hero header with a steelblue gradient
+   that matches the colour theme used in WS02–WS05.
+── */
+.site-hero {
+    background: linear-gradient(135deg, #1a3a5c 0%, steelblue 100%);
+}
+
+.site-hero__kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* ── NAVBAR BRAND ───────────────────────────────────────────
+   Slightly bolder brand name in the navbar.
+── */
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────
+   Dark steelblue footer, consistent with the hero gradient.
+── */
+.site-footer {
+    background-color: #1a3a5c;
+}
+
+/* ── CARD IMAGE HEIGHT ──────────────────────────────────────
+   Constrain card images to a uniform height so all cards in
+   a row align their bodies consistently.
+── */
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
