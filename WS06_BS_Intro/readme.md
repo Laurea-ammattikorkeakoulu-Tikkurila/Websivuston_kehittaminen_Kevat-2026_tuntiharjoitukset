@@ -1,1 +1,1 @@
-Täällä harjoitellaan Bootstrap käyttöä
+Täällä harjoitellaan Bootstrap käyttöä. Jatketaan Bootstrap tutustumista
